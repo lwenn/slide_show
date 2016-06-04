@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="lwenn">
+    <title>slide-show-lwenn</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/xcode.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .fade_demo {
+            display: none;
+        }
+        .panel-body .slide-fade {
+            height: 136px;
+        }
+        .panel-body img {
+            border: 1px solid #43717e;
+        }
+        .menu .button {
+            float: left;
+            _display: inline;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Slide Show</h1>
+    <div class="wrap">
+        <div class="menu clearfix">
+            <a class="button on" href="#slide_cont">滑动</a>
+            <a class="button" href="#fade_cont">淡入淡出</a>
+        </div>
+        <div class="content">
+            <div id="slide_cont" class="slide_demo">
+                <div class="panel">
+                    <div class="panel-head">
+                        <h3 class="panel-title">Example</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul id="slide0">
+                            <li><img src="images/1.jpg"/></li>
+                            <li><img src="images/2.jpg"/></li>
+                            <li><img src="images/3.jpg"/></li>
+                            <li><img src="images/4.jpg"/></li>
+                            <li><img src="images/5.jpg"/></li>
+                            <li><img src="images/6.jpg"/></li>
+                            <li><img src="images/7.jpg"/></li>
+                            <li><img src="images/8.jpg"/></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-head">
+                        <h3 class="panel-title">Code</h3>
+                    </div>
+                    <div class="panel-body">
+                        <pre class="code" id="code0"><code></code></pre>
+                        <a class="code_btn" target="_blank" href="js/slide_show.js">plugin code</a>
+                    </div>
+                </div>
+            </div>
+            <div id="fade_cont" class="fade_demo">
+                <div class="panel">
+                    <div class="panel-head">
+                        <h3 class="panel-title">Example</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul id="slide1">
+                            <li><img src="images/1.jpg"/></li>
+                            <li><img src="images/2.jpg"/></li>
+                            <li><img src="images/3.jpg"/></li>
+                            <li><img src="images/4.jpg"/></li>
+                            <li><img src="images/5.jpg"/></li>
+                            <li><img src="images/6.jpg"/></li>
+                            <li><img src="images/7.jpg"/></li>
+                            <li><img src="images/8.jpg"/></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-head">
+                        <h3 class="panel-title">Code</h3>
+                    </div>
+                    <div class="panel-body">
+                        <pre class="code" id="code1"><code></code></pre>
+                        <a class="code_btn" target="_blank" href="js/slide_show.js">plugin code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="author">
+            ©lwenn
+        </p>
+    </div>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/slide_show.js"></script>
+    <script id="fade_use_method">
+        var slide0 = new lwenn.SlideShow($("#slide1"));
+        slide0.createNav() //createNav: 创建图片的导航按钮
+                .fade(); //淡入淡出效果
+    </script>
+    <script id="slide_use_method">
+        var slide1 = new lwenn.SlideShow($("#slide0"));
+        slide1.setSwitchNum(3) //设置每次滑动的图片数量
+                .createNav()
+                .slideLeft(); //向左滑动
+    </script>
+    <script>
+        showCode();
+        $(".menu a").click(function(e) {
+            e.preventDefault();
+            var id = this.href.split("#")[1];
+            $("#" + id).show().siblings().hide();
+            $(this).addClass("on").siblings().removeClass("on");
+        });
+
+        function showCode() {
+            var html = $("#slide_use_method").html();
+            $("#code0 code").html(html);
+            html = $("#fade_use_method").html();
+            $("#code1 code").html(html);
+            hljs.initHighlightingOnLoad();
+        }
+    </script>
+</body>
+</html>

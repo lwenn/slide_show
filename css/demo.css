@@ -1,0 +1,69 @@
+body,div,ul,ol,li,p,span,label,dl,dt,dd,form,input,textarea,select,h1,h2,h3,h4,h5,h6,table,th,tr,td,pre{
+    margin: 0px;
+    padding: 0px;
+}
+img,th,td {
+    border:none;
+}
+li {
+    list-style: none;
+}
+a, a:hover {
+    text-decoration: none;
+}
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+.title {
+    padding: 10px;
+    color: #333;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+}
+.panel {
+    margin-top: 10px;
+}
+.panel .panel-head {}
+.panel .panel-head .panel-title {
+    font-size: 1em; font-weight: bold; line-height: 1.5em; margin: 0;
+}
+.panel .panel-body {
+    padding: 10px 0;
+}
+.code code {
+    padding: 10px;
+    color: #333;
+    font-size: 13px;
+    font-family: consolas;
+    border: 1px solid #999;
+}
+.code_btn {
+    color: #4ba6fc;
+    text-decoration: underline;
+}
+.code_btn:hover {
+    text-decoration: underline;
+}
+.button {
+    display: block;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: #4ba6fc;
+}
+.button:hover,
+.button.on {
+    background-color: #999;
+}
+.author {
+    margin-bottom: 10px;
+    color: #999;
+    text-align: right;
+}
